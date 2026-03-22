@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --color-accent: #e8ff47;
+}
+
+/* ── Dark theme (default) ── */
+:root, [data-theme="dark"] {
+  --bg:        #0a0a0a;
+  --bg-2:      #0d0d0d;
+  --surface:   #111111;
+  --surface-2: #161616;
+  --border:    #1a1a1a;
+  --border-2:  #262626;
+  --text:      #f0f0f0;
+  --text-2:    #ccc;
+  --muted:     #6b6b6b;
+  --faint:     #333;
+  --accent:    #e8ff47;
+  --accent-fg: #000;
+  --card-dot:  #333;
+}
+
+/* ── Light theme ── */
+[data-theme="light"] {
+  --bg:        #f5f5f0;
+  --bg-2:      #eeede8;
+  --surface:   #ffffff;
+  --surface-2: #f0efe9;
+  --border:    #e0dfd8;
+  --border-2:  #cccbc3;
+  --text:      #111111;
+  --text-2:    #333;
+  --muted:     #888;
+  --faint:     #bbb;
+  --accent:    #b8cc00;
+  --accent-fg: #000;
+  --card-dot:  #bbb;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection { background: var(--accent); color: var(--accent-fg); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-2); border-radius: 2px; }
+
+/* ── Marquee ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 25s linear infinite; }
+
+/* ── Typewriter cursor ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 0.9s step-end infinite; }
+
+/* ── Stagger fade-up (used in hero) ── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim-1 { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.1s both; }
+.anim-2 { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.35s both; }
+.anim-3 { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.55s both; }
+.anim-4 { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.75s both; }
+.anim-5 { animation: fadeSlideUp 0.6s cubic-bezier(0.22,1,0.36,1) 0.95s both; }
+
+/* ── Project card hover overlay ── */
+.project-card .card-overlay {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.22,1,0.36,1);
+}
+.project-card:hover .card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-card .card-link-btn {
+  opacity: 0;
+  transform: translateY(8px) scale(0.9);
+  transition: opacity 0.25s ease 0.05s, transform 0.3s cubic-bezier(0.22,1,0.36,1) 0.05s;
+}
+.project-card:hover .card-link-btn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ── Masonry grid (react-masonry-css) ── */
+.masonry-grid {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+.masonry-col {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+/* Ensure last child in each col has no bottom margin */
+.masonry-col > *:last-child { margin-bottom: 0; }
