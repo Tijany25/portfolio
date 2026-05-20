@@ -165,6 +165,45 @@ export const projects = [
     color: "#1f2937",
     accentColor: "#60a5fa",
   },
+  {
+    id: 14,
+    title: "TaxOga",
+    category: "Web App",
+    tags: ["React", "Finance", "Calculator"],
+    description:
+      "A tax calculator web app that simplifies tax computation for individuals and businesses. Clean interface with accurate, real-time tax breakdowns.",
+    url: "https://giddaa-flame.vercel.app/",
+    year: "2024",
+    featured: false,
+    color: "#0f2027",
+    accentColor: "#22d3ee",
+  },
+  {
+    id: 15,
+    title: "URL Shortener",
+    category: "Web App",
+    tags: ["React", "Node.js", "API"],
+    description:
+      "A fast, minimal URL shortening service. Paste any long link and get a clean, shareable short URL in seconds.",
+    url: "https://url-shortener-dun-six.vercel.app/",
+    year: "2024",
+    featured: false,
+    color: "#1a0533",
+    accentColor: "#a855f7",
+  },
+  {
+    id: 16,
+    title: "Detopagro",
+    category: "Web App",
+    tags: ["React", "Agriculture", "Platform"],
+    description:
+      "An agri-tech platform connecting farmers, buyers, and agribusiness stakeholders. Built to streamline agricultural trade and information access.",
+    url: "https://detopagro.vercel.app/",
+    year: "2024",
+    featured: false,
+    color: "#0d2010",
+    accentColor: "#86efac",
+  },
 ];
 
 export const skills = [
